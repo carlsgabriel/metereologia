@@ -12,6 +12,10 @@ body {
     flex-direction: column;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    transition: all linear 1s;
+    background-image: url('imgs/imagem-de-fundo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
@@ -23,6 +27,7 @@ h1 {
     display: flex;
     width: 300px;
 }
+
 .busca #searchInput {
     flex: 1;
     padding: 10px;
@@ -31,6 +36,7 @@ h1 {
     border-radius: 5px;
     border: 0;
 }
+
 .busca button {
     padding: 10px;
     font-size: 15px;
@@ -41,6 +47,7 @@ h1 {
     margin-left: 10px;
     cursor: pointer;
 }
+
 .busca button:hover {
     background-color: #444;
 }
@@ -67,44 +74,67 @@ h1 {
     display: flex;
     width: 100%;
 }
+
 .info .temp {
     flex: 1;
     text-align: center;
 }
+
 .info .vento {
     flex: 1;
     text-align: center;
 }
+
 .tempTitulo,
-.ventoTitulo {
-    color: #777;
+.ventoTitulo,
+.iconLegend,
+.ventoDirecao {
+    color: #000;
     font-size: 16px;
     margin-bottom: 5px;
 }
+
+.iconLegend,
+.ventoDirecao {
+    margin-top: 20px;
+}
+
+.temp img {
+    margin-top: -20px;
+}
+
+.iconLegend::first-letter {
+    text-transform: uppercase;
+}
+
 .tempInfo,
 .ventoInfo {
     color: #FFF;
     font-size: 30px;
     font-weight: bold;
 }
+
 .tempInfo sup {
     font-size: 15px;
     font-weight: normal;
 }
+
 .ventoInfo span {
     font-size: 15px;
     font-weight: normal;
 }
+
 .ventoArea {
     width: 50px;
     height: 50px;
     border: 1px solid #FFF;
     border-radius: 50%;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 12px;
     padding-left: 25px;
     padding-top: 25px;
 }
+
 .ventoPonto {
     width: 15px;
     height: 1px;
@@ -115,10 +145,4 @@ h1 {
 .aviso {
     color: #FFF;
     padding-top: 20px;
-}
-
-footer {
-    margin-top: 20px;
-    color: #FFF;
-    font-size: 13px;
 }
