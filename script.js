@@ -44,33 +44,29 @@ function mostrarInfos(json) {
     document.querySelector('.ventoInfo').innerHTML = `<div class="ventoInfo">${json.wind.speed} <span>km/h</span></div>`;
     document.querySelector('.ventoPonto').style.transform = `rotate(${json.wind.deg - 90}deg)`;
 
-    document.querySelector('body').style.backgroundRepeat = 'no-repeat';
-    document.querySelector('body').style.backgroundSize = 'cover';
-    if (json.weather[0].description == 'céu limpo') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/ceu-limpo.jpg')`;
-    } else if (json.weather[0].description == 'chuva') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/chuva.jpeg')`;
-    } else if (json.weather[0].description == 'chuva leve') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/chuva-leve.jpg')`;
-    } else if (json.weather[0].description == 'chuvisco') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/chuvisco.jpg')`;
-    } else if (json.weather[0].description == 'neblina') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/neblina.webp')`;
-    } else if (json.weather[0].description == 'neve') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/neve.jpeg')`;
-    } else if (json.weather[0].description == 'nevoa') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/nevoa.jpg')`;
-    } else if (json.weather[0].description == 'nuvens dispersas') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/nuvens-esparsas.jpg')`;
-    } else if (json.weather[0].description == 'nuvens fragmentadas') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/nuvens-fragmentadas.jpg')`;
-    } else if (json.weather[0].description == 'algumas nuvens') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/poucas-nuvens.jpeg')`;
-    } else if (json.weather[0].description == 'nublado') {
-        document.querySelector('body').style.backgroundImage = `url('imgs/nublado.jpg')`;
-    } else {
-        document.querySelector('body').style.backgroundImage = `url('imgs/tempestade.webp')`;
-    }
+    setTimeout(() => {
+        document.querySelector('body').style.backgroundRepeat = 'no-repeat';
+        document.querySelector('body').style.backgroundSize = 'cover';
+        if (json.weather[0].description == 'céu limpo') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/ceu-limpo.jpg')`;
+        } else if (json.weather[0].description == 'chuva moderada') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/chuva-moderada.jpg')`;
+        } else if (json.weather[0].description == 'chuva leve') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/chuva-leve.jpg')`;
+        } else if (json.weather[0].description == 'névoa') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/nevoa.jpg')`;
+        } else if (json.weather[0].description == 'nuvens dispersas') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/nuvens-esparsas.jpg')`;
+        } else if (json.weather[0].description == 'algumas nuvens') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/poucas-nuvens.jpeg')`;
+        } else if (json.weather[0].description == 'nublado') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/nublado.jpg')`;
+        } else if (json.weather[0].description == 'chuva forte') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/chuva-forte.jpg')`;
+        } else {
+            document.querySelector('body').style.backgroundImage = `url('imgs/tempestade.webp')`;
+        }
+    }, 500)
 
     document.querySelector('.resultado').style.display = 'block';
 }
