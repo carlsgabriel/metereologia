@@ -37,14 +37,6 @@ function limparInfos() {
 }
 
 function mostrarInfos(json) {
-    document.querySelector('.titulo').innerHTML = `<div class="titulo">${json.name}, ${json.sys.country}</div>`;
-    document.querySelector('.tempInfo').innerHTML = `<div class="tempInfo">${json.main.temp} <sup>ºC</sup></div>`;
-    document.querySelector('.iconLegend').innerHTML = `<div class="iconLegend">${json.weather[0].description}</div>`;
-    document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png`);
-    document.querySelector('.ventoInfo').innerHTML = `<div class="ventoInfo">${json.wind.speed} <span>km/h</span></div>`;
-    document.querySelector('.ventoPonto').style.transform = `rotate(${json.wind.deg - 90}deg)`;
-
-    setTimeout(() => {
         document.querySelector('body').style.backgroundRepeat = 'no-repeat';
         document.querySelector('body').style.backgroundSize = 'cover';
         if (json.weather[0].description == 'céu limpo') {
@@ -63,10 +55,20 @@ function mostrarInfos(json) {
             document.querySelector('body').style.backgroundImage = `url('imgs/nublado.jpg')`;
         } else if (json.weather[0].description == 'chuva forte') {
             document.querySelector('body').style.backgroundImage = `url('imgs/chuva-forte.jpg')`;
+        } else if (json.weather[0].description == 'neblina') {
+            document.querySelector('body').style.backgroundImage = `url('imgs/neblina.jpg')`;
         } else {
             document.querySelector('body').style.backgroundImage = `url('imgs/tempestade.webp')`;
         }
-    }, 500)
+   
+    document.querySelector('.titulo').innerHTML = `<div class="titulo">${json.name}, ${json.sys.country}</div>`;
+    document.querySelector('.tempInfo').innerHTML = `<div class="tempInfo">${json.main.temp} <sup>ºC</sup></div>`;
+    document.querySelector('.iconLegend').innerHTML = `<div class="iconLegend">${json.weather[0].description}</div>`;
+    document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png`);
+    document.querySelector('.ventoInfo').innerHTML = `<div class="ventoInfo">${json.wind.speed} <span>km/h</span></div>`;
+    document.querySelector('.ventoPonto').style.transform = `rotate(${json.wind.deg - 90}deg)`;
+
+
 
     document.querySelector('.resultado').style.display = 'block';
 }
